@@ -33,3 +33,13 @@ spec:
                 name: jenkins
                 port:
                   number: 8080
+    - host: argo.moyur.site
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argo-argocd-server
+                port:
+                  number: 80
