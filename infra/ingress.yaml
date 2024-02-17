@@ -20,7 +20,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: http-svc
+                name: moyur-app
                 port:
                   number: 80
     - host: jenkins.moyur.site
