@@ -22,7 +22,7 @@ spec:
               service:
                 name: moyur-app
                 port:
-                  number: 8080
+                  number: 80
     - host: jenkins.moyur.site
       http:
         paths:
