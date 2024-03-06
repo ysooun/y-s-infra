@@ -334,13 +334,13 @@ objectSelector:
 
 serviceMonitor:
   # Specifies whether a service monitor should be created
-  enabled: true
+  enabled: false
   # Labels to add to the service account
   additionalLabels: {}
   # Prometheus scrape interval
   interval: 1m
   # Namespace to create the service monitor in
-  namespace: kube-system
+  namespace: 
 
 # clusterSecretsPermissions lets you configure RBAC permissions for secret resources
 # Access to secrets resource is required only if you use the OIDC feature, and instead of
