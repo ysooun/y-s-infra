@@ -716,19 +716,17 @@ scrapeConfigFiles: []
 serverFiles:
   ## Alerts configuration
   ## Ref: https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
-  alerting_rules.yml: {}
-  # groups:
-  #   - name: Instances
-  #     rules:
-  #       - alert: InstanceDown
-  #         expr: up == 0
-  #         for: 5m
-  #         labels:
-  #           severity: page
-  #         annotations:
-  #           description: '{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 5 minutes.'
-  #           summary: 'Instance {{ $labels.instance }} down'
-  ## DEPRECATED DEFAULT VALUE, unless explicitly naming your files, please use alerting_rules.yml
+  alerting_rules.yml:
+    group:
+      - name: HighRequestLatency
+        rules:
+        - alert: HighRequestLatency
+          expr: job:request_latency_seconds:mean5m{job="myjob"} > 0.5
+          for: 10m
+          labels:
+            severity: critical
+          annotations:
+            summary: High request latency
   alerts: {}
 
   ## Records configuration

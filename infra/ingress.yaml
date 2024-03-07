@@ -20,9 +20,9 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: moyur-app
+                name: moyur-app-service
                 port:
-                  number: 8080
+                  number: 80
     - host: jenkins.moyur.site
       http:
         paths:
@@ -43,3 +43,23 @@ spec:
                 name: argocd-server
                 port:
                   number: 80
+    - host: prometheus.moyur.site
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: prometheus-server
+                port:
+                  number: 80
+    - host: alertmanager.moyur.site
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: prometheus-alertmanager
+                port:
+                  number: 9093
